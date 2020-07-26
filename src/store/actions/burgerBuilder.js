@@ -1,42 +1,40 @@
-import { ADD_INGREDIENT, REMOVE_INGREDIENT, SET_INGREDIENTS, FETCH_INGREDIENTS_FAILED } from './actionsTypes';
-import axios from '../../axios-orders';
+import {
+  ADD_INGREDIENT,
+  REMOVE_INGREDIENT,
+  SET_INGREDIENTS,
+  FETCH_INGREDIENTS_FAILED,
+  FETCH_INGREDIENTS,
+} from "./actionsTypes";
 
 export const addIngredient = (name) => {
   return {
     type: ADD_INGREDIENT,
-    ingredientName: name
-  }
-}
+    ingredientName: name,
+  };
+};
 
 export const removeIngredient = (name) => {
   return {
     type: REMOVE_INGREDIENT,
-    ingredientName: name
-  }
-}
+    ingredientName: name,
+  };
+};
 
 export const setIngredients = (ingredients) => {
   return {
     type: SET_INGREDIENTS,
-    ingredients: ingredients
-  }
-}
+    ingredients: ingredients,
+  };
+};
 
 export const fetchIngredientsFailed = () => {
   return {
-    type: FETCH_INGREDIENTS_FAILED
-  }
-}
+    type: FETCH_INGREDIENTS_FAILED,
+  };
+};
 
 export const initIngredients = () => {
-  return (dispatch) => {
-    axios
-      .get("https://react-my-burger-ea1e4.firebaseio.com/ingredients.json")
-      .then((response) => {
-        dispatch(setIngredients(response.data))
-      })
-      .catch((err) => {
-        dispatch(fetchIngredientsFailed())
-      });
-  }
-}
+  return {
+    type: FETCH_INGREDIENTS,
+  };
+};
