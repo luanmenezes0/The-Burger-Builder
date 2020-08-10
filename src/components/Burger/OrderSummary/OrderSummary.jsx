@@ -1,8 +1,7 @@
 import React from "react";
-import Auxi from "../../../hoc/_Aux/Auxi";
 import Button from "../../UI/Button/Button";
 
-const orderSummary = (props) => {
+const OrderSummary = (props) => {
   const ingredientSummary = Object.keys(props.ingredients).map((igkey) => {
     return (
       <li key={igkey}>
@@ -13,7 +12,7 @@ const orderSummary = (props) => {
   });
 
   return (
-    <Auxi>
+    <>
       <h3>Your Order</h3>
       <p>A delicious burger with the following ingredients:</p>
       <ul>{ingredientSummary}</ul>
@@ -27,8 +26,8 @@ const orderSummary = (props) => {
       <Button btnType="Success" clicked={props.purchaseContinued}>
         CONTINUE
       </Button>
-    </Auxi>
+    </>
   );
 };
 
-export default orderSummary;
+export default OrderSummary;
